@@ -23,7 +23,7 @@ const Login = () => {
     const {login} = useContext(UserContext)
 
     const handleSubmit = async () => {
-        fetch('http://localhost:4000/login', {
+        fetch('livechat-linkup-server.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', 
