@@ -73,7 +73,7 @@ const ChatContainer = () => {
                 {isMobile ?
                 <div className="h-full flex flex-wrap lg:flex-nowrap justify-center items-start gap-0">
                     {selected ?
-                    <div className="w-full h-screen lg:h-[540px] flex flex-col relative">
+                    <div className="w-full h-svh lg:h-[540px] flex flex-col relative">
                         <TopData user={selected}/>
                         <Chat messages={messages} currentUser={user.username} conversation={conversationId} />
                         <Input onSendMessage={sendMessage} />
