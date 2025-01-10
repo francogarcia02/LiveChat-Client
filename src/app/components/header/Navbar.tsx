@@ -7,7 +7,7 @@ const Navbar = () => {
     const {user} = useContext(UserContext)
 
     const handleLogOut = () => {
-        fetch('livechat-linkup-server.com/logout',{
+        fetch('https://livechat-server-production-6654.up.railway.app/logout',{
             method: 'POST',
             credentials:'include'
         })

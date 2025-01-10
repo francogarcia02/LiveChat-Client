@@ -38,7 +38,7 @@ const ChatContainer = () => {
     useEffect(() => {
       if (conversationId) {
           setMessages([]);
-          socketRef.current = io("http://localhost:4000", {
+          socketRef.current = io("https://livechat-server-production-6654.up.railway.app", {
               auth: { username: user },
           });
 
