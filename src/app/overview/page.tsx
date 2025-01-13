@@ -65,7 +65,7 @@ const ChatContainer = () => {
     };
 
     return (
-        <section className={`${keyBoard ? 'h-custom-chat' : ''}`}>
+        <section className={`${keyBoard ? 'h-custom-chat' : ''} overflow-hidden`}>
             {user ?
                 <>
                     {isMobile ?

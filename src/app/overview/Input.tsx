@@ -13,11 +13,8 @@ const Input: React.FC<ChatInputProps> = ({ onSendMessage }) => {
   const {setKeyboard} = useContext(UserContext)
 
   const handleFocus = () => {
-    console.log('abierto')
-    setKeyboard(true)}; // El teclado está abierto
-  const handleBlur = () => {
-    console.log('cerrado')
-    setKeyboard(false)}; // El teclado está cerrado
+    setKeyboard(true)
+  }; 
 
   const handleSend = () => {
     if (message.trim()) {
@@ -34,8 +31,7 @@ const Input: React.FC<ChatInputProps> = ({ onSendMessage }) => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Type your message..."
-        onFocus={handleFocus}
-        onBlur={handleBlur}
+        onFocus={handleFocus}    
       />
       <button
         className="ml-2 p-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
