@@ -33,11 +33,11 @@ const ChatContainer = () => {
         };
     }, [setIsMobile]);
 
-    // Manejo de la conexión del socket  https://livechat-server-production-6654.up.railway.app
+    // Manejo de la conexión del socket  
     useEffect(() => {
         if (conversationId) {
             setMessages([]);
-            socketRef.current = io("http://localhost:4000", {
+            socketRef.current = io("https://livechat-server-production-6654.up.railway.app", {
                 auth: { username: user },
             });
 
