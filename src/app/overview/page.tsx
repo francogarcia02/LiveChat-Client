@@ -12,7 +12,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 
 const ChatContainer = () => {
-    const [messages, setMessages] = useState<{ msg: string; username: string }[]>([]);
+    const [messages, setMessages] = useState<{ msg: string; username: string; created_at: string }[]>([]);
     const [conversationId, setConversationId] = useState<string>('');
     const socketRef = useRef<Socket | null>(null);
 
@@ -33,11 +33,11 @@ const ChatContainer = () => {
         };
     }, [setIsMobile]);
 
-    // Manejo de la conexión del socket
+    // Manejo de la conexión del socket  https://livechat-server-production-6654.up.railway.app
     useEffect(() => {
         if (conversationId) {
             setMessages([]);
-            socketRef.current = io("https://livechat-server-production-6654.up.railway.app", {
+            socketRef.current = io("http://localhost:4000", {
                 auth: { username: user },
             });
 
@@ -45,11 +45,11 @@ const ChatContainer = () => {
 
             socket.emit("join_conversation", conversationId);
 
-            socket.on("chat_message", ({ msg, username }) => {
-                setMessages((prevMessages) => [...prevMessages, { msg, username }]);
-            });
-
             socket.emit("fetch_messages", { conversationId });
+
+            socket.on("chat_message", ({ msg, username, created_at }) => {
+                setMessages((prevMessages) => [...prevMessages, { msg, username, created_at }]);
+            });
 
             return () => {
                 socket.disconnect();
@@ -75,7 +75,7 @@ const ChatContainer = () => {
                                     className={`w-full flex flex-col relative ${keyBoard ? 'h-custom-chat' : 'h-screen'}`}
                                 >
                                     <TopData user={selected} />
-                                    <Chat messages={messages} currentUser={user.username} conversation={conversationId} />
+                                    <Chat messages={messages} conversation={conversationId} />
                                     <Input onSendMessage={sendMessage} />
                                 </div>
                                 :
@@ -89,7 +89,7 @@ const ChatContainer = () => {
                                 {selected ?
                                     <>
                                         <TopData user={selected} />
-                                        <Chat messages={messages} currentUser={user.username} conversation={conversationId} />                       
+                                        <Chat messages={messages} conversation={conversationId} />                       
                                         <Input onSendMessage={sendMessage} />
                                     </>
                                     :
