@@ -30,7 +30,7 @@ const Test = () => {
             
             <div className="w-full h-full">
                 <div className="fixed top-0 w-full bg-red-500">Cabezera</div>
-                <div className="h-[500px] bg-yellow-500">Chat</div>
+                <div className="h-[5000px] bg-yellow-500">Chat</div>
                 <div className="fixed bottom-0 w-full bg-green-500">
                     <input/>
                 </div>
