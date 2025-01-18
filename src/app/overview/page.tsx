@@ -72,7 +72,7 @@ const ChatContainer = () => {
                         <div className="h-full flex flex-wrap justify-center items-start gap-0">
                             {selected ?
                                 <div
-                                    className={`w-full flex flex-col relative ${keyBoard ? 'h-custom-chat' : 'h-screen'}`}
+                                    className={`w-full flex flex-col relative ${keyBoard ? 'h-custom-chat' : 'h-svh'}`}
                                 >
                                     <TopData user={selected} />
                                     <Chat messages={messages} conversation={conversationId} />
