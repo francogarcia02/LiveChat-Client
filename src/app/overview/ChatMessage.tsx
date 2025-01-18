@@ -32,7 +32,7 @@ const ChatMessage = ({content}: Props) => {
                 :
                 <div className="w-0 h-0 absolute top-0 -left-2 border-l-[15px] border-t-[20px] border-l-transparent border-t-gray-200"></div>
                 }
-                <p className="break-all">{content.msg}</p>
+                <p className={`break-all ${content.username === user.username ? 'text-end' : 'text-start'}`}>{content.msg}</p>
                 <small className={`text-xs w-full ${content.username === user.username ? 'text-gray-200 text-start' : 'text-[#383838] text-end'}`}>{hour}</small>
             </div>
         </div>
