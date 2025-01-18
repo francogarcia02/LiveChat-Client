@@ -65,14 +65,14 @@ const ChatContainer = () => {
     };
 
     return (
-        <div className={`${keyBoard ? 'h-custom-chat' : ''} overflow-hidden`}>
+        <section className={`${keyBoard ? 'h-custom-chat' : ''} overflow-hidden`}>
             {user ?
                 <>
                     {isMobile ?
                         <div className="h-full flex flex-wrap justify-center items-start gap-0">
                             {selected ?
                                 <div
-                                    className={`w-full flex flex-col relative ${keyBoard ? 'h-custom-chat' : ''}`}
+                                    className={`w-full flex flex-col relative ${keyBoard ? 'h-custom-chat' : 'h-screen'}`}
                                 >
                                     <TopData user={selected} />
                                     <Chat messages={messages} conversation={conversationId} />
@@ -106,7 +106,7 @@ const ChatContainer = () => {
                     <h1 className="text-3xl font-bold">Login Required</h1>
                 </div>
             }
-        </div>
+        </section>
     );
 };
 
