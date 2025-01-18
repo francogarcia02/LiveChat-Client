@@ -22,7 +22,6 @@ const Navbar = () => {
             <div className="p-4 ps-5 font-bold">
                 <Link href='/'>LiveChat</Link>
             </div>
-            <Link href={'/test'}>Test</Link>
             <div className="me-5">
                 {user && user.username ?
                 <form><button type="submit" className="font-bold hover:text-pink-500 transition duration-150" onClick={() => {handleLogOut()}}>LogOut</button></form>
