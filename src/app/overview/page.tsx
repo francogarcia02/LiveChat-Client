@@ -65,7 +65,7 @@ const ChatContainer = () => {
     };
 
     return (
-        <section className={`${keyBoard ? 'h-custom-chat' : ''} overflow-hidden`}>
+        <div className={`${keyBoard ? 'h-custom-chat' : ''} overflow-hidden`}>
             {user ?
                 <>
                     {isMobile ?
@@ -106,7 +106,7 @@ const ChatContainer = () => {
                     <h1 className="text-3xl font-bold">Login Required</h1>
                 </div>
             }
-        </section>
+        </div>
     );
 };
 

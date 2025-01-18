@@ -20,8 +20,6 @@ const Login = () => {
     const [response, setResponse] = useState<LoginResponse>()
     const [error, setError] = useState<string>('')
 
-    const [message, setMessage] = useState<string>('')
-
     const {login} = useContext(UserContext)
 
     const handleSubmit = async () => {
@@ -44,28 +42,7 @@ const Login = () => {
             }
         })
     };
-
-    if (window.visualViewport) {
-        const initialHeight = window.visualViewport.height;
     
-        window.visualViewport.addEventListener('resize', () => {
-            let currentHeight
-            let keyboardHeight
-            if(window.visualViewport){
-                currentHeight = window.visualViewport.height;
-                keyboardHeight = initialHeight - currentHeight;
-            } else {
-                setMessage('window.visualViewport not exists');
-            }
-            
-    
-            if (keyboardHeight && keyboardHeight > 0) {
-                setMessage(`El teclado ocupa aproximadamente ${keyboardHeight}px.`);
-            } else {
-                setMessage('El teclado está oculto.');
-            }
-        });
-    }
     
     
     return(
@@ -77,7 +54,6 @@ const Login = () => {
             <div className="w-full flex justify-center items-center">
                 <div className="w-full lg:w-1/2 flex flex-col gap-10 justify-center items-center bg-[#383838] p-20 pt-10 pb-10 m-5 rounded-lg">
                     <h2 className="text-3xl">Login</h2>
-                    <h1>{message}</h1>
                     {error ? 
                     <div className="w-full">
                         <h1 className="font-bold text-red-500">{error}</h1>
