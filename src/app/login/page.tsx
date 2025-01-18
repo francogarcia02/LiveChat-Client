@@ -49,10 +49,17 @@ const Login = () => {
         const initialHeight = window.visualViewport.height;
     
         window.visualViewport.addEventListener('resize', () => {
-            const currentHeight = window.visualViewport.height;
-            const keyboardHeight = initialHeight - currentHeight;
+            let currentHeight
+            let keyboardHeight
+            if(window.visualViewport){
+                currentHeight = window.visualViewport.height;
+                keyboardHeight = initialHeight - currentHeight;
+            } else {
+                setMessage('window.visualViewport not exists');
+            }
+            
     
-            if (keyboardHeight > 0) {
+            if (keyboardHeight && keyboardHeight > 0) {
                 setMessage(`El teclado ocupa aproximadamente ${keyboardHeight}px.`);
             } else {
                 setMessage('El teclado está oculto.');
